@@ -39,9 +39,9 @@ Note: As of Version 1, a local MySQL installation is required to run this projec
     - Run Backend:
         Navigate to the root and run ./mvnw spring-boot:run.
     - Run Frontend:
-        Open index.html in any modern web browser.
+        Open src/main/html-css-js/website.html in any modern web browser.
 
-//--- Forseeable next steps ---//
+//--- Foreseeable next steps ---//
 1. Integrate a H2 database to allow portability of the program and place it as default
 2. Build the back end logic to allow smooth handling of patient records and be able to perform operations such as filtering
 3. Improve the front end to match the general theme and refactor variables
