@@ -11,7 +11,7 @@ The project is currently in progress and many details are subject to change.
 
 
 //--- Current state of the project ---//
-- I built an RESTful API using Spring Boot to handle data operations, Maven to manage dependencies and JPA to efficiently interact with the database. The project can perform basic CRUD operations on an object named "user"
+- Built a RESTful API using Spring Boot to handle data operations, Maven to manage dependencies and JPA to efficiently interact with the database. The project can perform basic CRUD operations on an object named "user"
 - The database is currently using MySQL.
 - HTML, CSS and vanilla JS fetch API are used to connect to the backend
 
