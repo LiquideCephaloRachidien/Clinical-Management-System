@@ -18,7 +18,7 @@ The project is currently in progress and many details are subject to change.
 
 
 //--- Current state of the project ---//
-- I built an RESTful API using Spring Boot to handle data operations, Maven to manage dependencies and JPA to efficiently interact with the database. The project can perform basic CRUD operations on patient objects.
+- Built a RESTful API using Spring Boot to handle data operations, Maven to manage dependencies and JPA to efficiently interact with the database. The project can perform basic CRUD operations on patient objects.
 - The database is currently using MySQL.
 - HTML, CSS and vanilla JS fetch API are used to connect to the backend
 
@@ -50,11 +50,9 @@ As of version 1, a local MySQL installation is required to run this project.
     - Run Backend:
         Navigate to the root and run ./mvnw spring-boot:run.
     - Run Frontend:
-        Open website.html in any modern web browser.
+        Open src/main/html-css-js/website.html in any modern web browser.
 
-
-
-//--- Forseeable next steps ---//
+//--- Foreseeable next steps ---//
 1. Integrate a H2 database to allow portability of the program and place it as default
 2. Build the back end logic to allow smooth handling of patient records and be able to perform operations such as filtering
 3. Improve the front end to match the general theme and refactor variables
@@ -70,4 +68,4 @@ I plan on eventually connecting the open FDA API to this project so that a user 
 //--- Versions ---//
 Version 1.1: Changed default class "user" into "patient" and added medical-setting attributes to better match the overall theme of the project
 
-Version 1: Built a functional (locally) java RESTful API and successfully connected it to the front end and the database
+Version 1: Built a locally functional java RESTful API and successfully connected it to the front end and the database
