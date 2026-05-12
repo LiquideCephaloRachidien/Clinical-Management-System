@@ -1,40 +1,48 @@
 const BASE_URL = 'http://localhost:8080';
-const userForm = document.getElementById('userForm');
-const userTable = document.getElementById('userTable');
+const patientForm = document.getElementById('patientForm');
+const patientTable = document.getElementById('patientTable');
 
 // read
-async function fetchUsers() {
+async function fetchPatients() {
     try {
-        const res = await fetch(`${BASE_URL}/users`);
-        const users = await res.json();
-        userTable.innerHTML = users.map(user => `
+        const res = await fetch(`${BASE_URL}/patients`);
+        const patients = await res.json();
+        patientTable.innerHTML = patients.map(patient => `
             <tr>
-                <td>${user.id}</td>
-                <td>${user.firstName}</td>
-                <td>${user.lastName}</td>
-                <td>${user.occupation}</td>
-                <td>${user.age}</td>
+                <td>${patient.id}</td>
+                <td>${patient.firstName}</td>
+                <td>${patient.lastName}</td>
+                <td>${patient.age}</td>
+                <td>${patient.gender}</td>
+                <td>${patient.previousMedId}</td>
+                <td>${patient.chiefComplaint}</td>
+                <td>${patient.diagnosedIllness}</td>
+                <td>${patient.prescribedMedId}</td>
                 <td>
-                    <button class="edit-btn" onclick="prepareEdit(${user.id}, '${user.firstName}', '${user.lastName}', '${user.occupation}', ${user.age})">Edit</button>
-                    <button class="delete-btn" onclick="deleteUser(${user.id})">Delete</button>
+                    <button class="edit-btn" onclick="prepareEdit(${patient.id}, '${patient.firstName}', '${patient.lastName}', ${patient.age}, '${patient.gender}', '${patient.previousMedId}', '${patient.chiefComplaint}', '${patient.diagnosedIllness}', '${patient.prescribedMedId}')">Edit</button>
+                    <button class="delete-btn" onclick="deletePatient(${patient.id})">Delete</button>
                 </td>
             </tr>
         `).join('');
     } catch (err) {
-        console.error("Failed to load users:", err);
+        console.error("Failed to load patients:", err);
     }
 }
 
 // create and update
-userForm.onsubmit = async (e) => {
+patientForm.onsubmit = async (e) => {
     e.preventDefault();
     
-    const id = document.getElementById('userId').value;
-    const userPayload = {
+    const id = document.getElementById('patientId').value;
+    const patientPayload = {
         firstName: document.getElementById('firstName').value,
         lastName: document.getElementById('lastName').value,
-        occupation: document.getElementById('occupation').value,
-        age: parseInt(document.getElementById('age').value)
+        age: parseInt(document.getElementById('age').value),
+        gender: document.getElementById('gender').value,
+        previousMedId: document.getElementById('previousMedId').value,
+        chiefComplaint: document.getElementById('chiefComplaint').value,
+        diagnosedIllness: document.getElementById('diagnosedIllness').value,
+        prescribedMedId: document.getElementById('prescribedMedId').value
     };
 
     const url = id ? `${BASE_URL}/update/${id}` : `${BASE_URL}/save`;
@@ -43,29 +51,34 @@ userForm.onsubmit = async (e) => {
     await fetch(url, {
         method: method,
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(userPayload)
+        body: JSON.stringify(patientPayload)
     });
 
-    userForm.reset();
-    document.getElementById('userId').value = '';
-    fetchUsers();
+    patientForm.reset();
+    document.getElementById('patientId').value = '';
+    fetchPatients();
 };
 
 // delete
-async function deleteUser(id) {
+async function deletePatient(id) {
     if (confirm('Are you sure?')) {
         await fetch(`${BASE_URL}/delete/${id}`, { method: 'DELETE' });
-        fetchUsers();
+        fetchPatients();
     }
 }
 
 // edit helper
-function prepareEdit(id, fname, lname, occ, age) {
-    document.getElementById('userId').value = id;
+function prepareEdit(id, fname, lname, age, gender, prevmedId, ccomplaint, dillness, presmedId) {
+    document.getElementById('patientId').value = id;
     document.getElementById('firstName').value = fname;
     document.getElementById('lastName').value = lname;
-    document.getElementById('occupation').value = occ;
     document.getElementById('age').value = age;
+    document.getElementById('gender').value = gender;
+    document.getElementById('previousMedId').value = prevmedId;
+    document.getElementById('chiefComplaint').value = ccomplaint;
+    document.getElementById('diagnosedIllness').value = dillness;
+    document.getElementById('prescribedMedId').value = presmedId;
+    
 }
 
-fetchUsers();
+fetchPatients();

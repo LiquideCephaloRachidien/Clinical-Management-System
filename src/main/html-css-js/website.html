@@ -7,14 +7,19 @@
 </head>
 <body>
     <h2>User Management System</h2>
+    <p>note: gender textbox takes a char (m for male and f for female)</p>
     
-    <form id="userForm">
-        <input type="hidden" id="userId">
+    <form id="patientForm">
+        <input type="hidden" id="patientId">
         <input type="text" id="firstName" placeholder="First Name" required>
         <input type="text" id="lastName" placeholder="Last Name" required>
-        <input type="text" id="occupation" placeholder="Occupation" required>
         <input type="number" id="age" placeholder="Age" required>
-        <button type="submit" id="saveBtn">Save User</button>
+        <input type="text" id="gender" placeholder="Gender" required>
+        <input type="text" id="previousMedId" placeholder="Previous medication ID" required>
+        <input type="text" id="chiefComplaint" placeholder="Chief Complaint" required>
+        <input type="text" id="diagnosedIllness" placeholder="Diagnosed illness" required>
+        <input type=""text" id="prescribedMedId" placeholder="Prescribed medication ID" required>
+        <button type="submit" id="saveBtn">Save Patient</button>
     </form>
 
     <table border="1">
@@ -23,14 +28,21 @@
                 <th>ID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Occupation</th>
                 <th>Age</th>
+                <th>Gender</th>
+                <th>Previous medication ID</th>
+                <th>Chief complaint</th>
+                <th>Diagnosed illness</th>
+                <th>Prescribed medication ID</th>
                 <th>Actions</th>
             </tr>
         </thead>
-        <tbody id="userTable"></tbody>
+        <tbody id="patientTable"></tbody>
     </table>
 
     <script src="script.js"></script>
 </body>
 </html>
+
+
+

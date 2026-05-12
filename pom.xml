@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>RestAPI.app</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>clinical-management-system</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name/>
-	<description/>
+	<name> Clinical Management System </name>
+	<description> A REST API for managing patient records</description>
 	<url/>
 	<licenses>
 		<license/>
